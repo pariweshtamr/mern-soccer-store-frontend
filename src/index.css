@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Urbanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none;
+}
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+.alert-info {
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
+.alert-danger {
+  color: #a02020;
+  background-color: #ffe0e0e0;
+}
+
+.StripeElement--webkit--autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
