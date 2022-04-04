@@ -19,8 +19,8 @@ const Products = ({ cat, filters }) => {
       try {
         const result = await Axios.get(
           cat
-            ? `https://mern-football-store-project.herokuapp.com/api/v1/products?category=${cat}`
-            : 'https://mern-football-store-project.herokuapp.com/api/v1/products',
+            ? `https://mern-soccer-store.herokuapp.com/api/v1/products?category=${cat}`
+            : 'https://mern-soccer-store.herokuapp.com/api/v1/products',
         )
         setProducts(result.data)
       } catch (error) {}
