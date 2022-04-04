@@ -25,7 +25,7 @@ const OrderHistory = () => {
     const fetchOrder = async () => {
       try {
         const { data } = await Axios.get(
-          `${process.env.ROOT_URL}/api/v1/order/paid`,
+          'https://mern-soccer-store.herokuapp.com/api/v1/order/paid',
           {
             headers: {
               authorization: window.sessionStorage.getItem('accessJWT'),
