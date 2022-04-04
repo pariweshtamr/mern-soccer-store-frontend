@@ -1,11 +1,6 @@
 import Axios from 'axios'
 
-const rootUrl =
-  process.env.NODE_ENV === 'production'
-    ? process.env.ROOT_URL
-    : 'https://mern-soccer-store.herokuapp.com'
-
-const userApi = rootUrl + '/user'
+const userApi = `${process.env.ROOT_URL}/user`
 
 export const createUser = async (newUser) => {
   try {

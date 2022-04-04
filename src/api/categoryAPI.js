@@ -5,7 +5,7 @@ const rootUrl =
     ? process.env.ROOT_URL
     : 'https://mern-soccer-store.herokuapp.com'
 
-const catApi = rootUrl + '/category'
+const catApi = `${process.env.ROOT_URL}/category`
 export const getCategories = async () => {
   try {
     const { data } = await Axios.get(catApi)

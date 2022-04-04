@@ -30,12 +30,9 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
     e.preventDefault()
     setProcessing(true)
 
-    const res = await Axios.post(
-      'https://mern-soccer-store.herokuapp.com/payment/create',
-      {
-        amount: value.totalAmount * 100,
-      },
-    )
+    const res = await Axios.post(`${process.env.ROOT_URL}/payment/create`, {
+      amount: value.totalAmount * 100,
+    })
 
     try {
       const payload = await stripe.confirmCardPayment(res.data, {

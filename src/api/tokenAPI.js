@@ -1,11 +1,6 @@
 import Axios from 'axios'
 
-const rootUrl =
-  process.env.NODE_ENV === 'production'
-    ? process.env.ROOT_URL
-    : 'https://mern-soccer-store.herokuapp.com'
-
-const tokenApi = rootUrl + '/token'
+const tokenApi = `${process.env.ROOT_URL}/token`
 
 export const getNewAccessJWT = async () => {
   try {
