@@ -1,14 +1,15 @@
 import Axios from 'axios'
 
-const tokenApi = `${process.env.ROOT_URL}/api/v1/token`
-
 export const getNewAccessJWT = async () => {
   try {
-    const { data } = await Axios.get(tokenApi, {
-      headers: {
-        authorization: window.localStorage.getItem('refreshJWT'),
+    const { data } = await Axios.get(
+      'https://mern-soccer-store.herokuapp.com/api/v1/token',
+      {
+        headers: {
+          authorization: window.localStorage.getItem('refreshJWT'),
+        },
       },
-    })
+    )
     return data
   } catch (error) {
     console.log(error)
@@ -37,7 +38,12 @@ export const requestOTP = async (email) => {
       return false
     }
 
-    const { data } = await Axios.post(tokenApi + '/request-otp', { email })
+    const {
+      data,
+    } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/token/request-otp',
+      { email },
+    )
     return data
   } catch (error) {
     console.log(error)

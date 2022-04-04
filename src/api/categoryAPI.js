@@ -1,6 +1,5 @@
 import Axios from 'axios'
 
-const catApi = `${process.env.ROOT_URL}/api/v1/category`
 export const getCategories = async () => {
   try {
     const { data } = await Axios.get(

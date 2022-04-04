@@ -4,7 +4,10 @@ const userApi = `${process.env.ROOT_URL}/api/v1/user`
 
 export const createUser = async (newUser) => {
   try {
-    const { data } = await Axios.post(userApi + '/register', newUser)
+    const { data } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/register',
+      newUser,
+    )
     return data
   } catch (error) {
     console.log(error)
@@ -17,7 +20,10 @@ export const createUser = async (newUser) => {
 
 export const verifyNewUser = async (info) => {
   try {
-    const { data } = await Axios.patch(userApi + '/email-verification', info)
+    const { data } = await Axios.patch(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/email-verification',
+      info,
+    )
     return data
   } catch (error) {
     console.log(error)
@@ -30,7 +36,10 @@ export const verifyNewUser = async (info) => {
 
 export const loginUser = async (info) => {
   try {
-    const { data } = await Axios.post(userApi + '/login', info)
+    const { data } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/login',
+      info,
+    )
     return data
   } catch (error) {
     return {
@@ -42,11 +51,14 @@ export const loginUser = async (info) => {
 
 export const getUser = async () => {
   try {
-    const { data } = await Axios.get(userApi, {
-      headers: {
-        authorization: window.sessionStorage.getItem('accessJWT'),
+    const { data } = await Axios.get(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user',
+      {
+        headers: {
+          authorization: window.sessionStorage.getItem('accessJWT'),
+        },
       },
-    })
+    )
     return data
   } catch (error) {
     console.log(error)
@@ -56,7 +68,10 @@ export const getUser = async () => {
 
 export const logoutUser = async (tokens) => {
   try {
-    const { data } = await Axios.post(userApi + '/logout', tokens)
+    const { data } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/logout',
+      tokens,
+    )
     return data
   } catch (error) {
     return {
@@ -68,11 +83,15 @@ export const logoutUser = async (tokens) => {
 
 export const updateUserProfile = async (userInfo) => {
   try {
-    const { data } = await Axios.patch(userApi, userInfo, {
-      headers: {
-        authorization: window.sessionStorage.getItem('accessJWT'),
+    const { data } = await Axios.patch(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user',
+      userInfo,
+      {
+        headers: {
+          authorization: window.sessionStorage.getItem('accessJWT'),
+        },
       },
-    })
+    )
     return data
   } catch (error) {
     console.log(error)
@@ -82,11 +101,15 @@ export const updateUserProfile = async (userInfo) => {
 
 export const updateUserPassword = async (passInfo) => {
   try {
-    const { data } = await Axios.post(userApi + '/password-update', passInfo, {
-      headers: {
-        authorization: window.sessionStorage.getItem('accessJWT'),
+    const { data } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/password-update',
+      passInfo,
+      {
+        headers: {
+          authorization: window.sessionStorage.getItem('accessJWT'),
+        },
       },
-    })
+    )
     console.log(data)
     return data
   } catch (error) {
@@ -97,7 +120,10 @@ export const updateUserPassword = async (passInfo) => {
 
 export const resetForgotPassword = async (passInfo) => {
   try {
-    const { data } = await Axios.post(userApi + '/reset-password', passInfo)
+    const { data } = await Axios.post(
+      'https://mern-soccer-store.herokuapp.com/api/v1/user/reset-password',
+      passInfo,
+    )
     return data
   } catch (error) {
     console.log(error)

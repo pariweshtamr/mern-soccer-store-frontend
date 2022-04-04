@@ -1,10 +1,10 @@
 import Axios from 'axios'
 
-const prodApi = `${process.env.ROOT_URL}/api/v1/products`
-
 export const getProducts = async () => {
   try {
-    const { data } = await Axios.get(prodApi)
+    const { data } = await Axios.get(
+      'https://mern-soccer-store.herokuapp.com/api/v1/products',
+    )
     return data
   } catch (error) {
     return error?.message?.data || { status: 'error', message: error.message }
@@ -13,7 +13,9 @@ export const getProducts = async () => {
 
 export const getAProductById = async (_id) => {
   try {
-    const { data } = await Axios.get(`${prodApi}/${_id}`)
+    const { data } = await Axios.get(
+      `https://mern-soccer-store.herokuapp.com/api/v1/products/${_id}`,
+    )
     return data
   } catch (error) {
     console.log(error)
