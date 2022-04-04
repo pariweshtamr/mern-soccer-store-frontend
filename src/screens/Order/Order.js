@@ -41,7 +41,7 @@ const Order = () => {
     const sendCartData = async () => {
       try {
         const { data } = await Axios.post(
-          'https://mern-soccer-store.herokuapp.com/api/v1/order',
+          'https://mern-soccer-store.herokuapp.com/order',
           {
             ...cart,
             shippingAddress: {
