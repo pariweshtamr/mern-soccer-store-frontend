@@ -6,6 +6,7 @@ export const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: 67vh;
 `
 export const ProductsListContainer = styled.div`
   padding: 10px;
@@ -18,13 +19,6 @@ export const ProductsListContainer = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-  /* @media screen and (max-width: 1024px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    align-content: center;
-    margin-bottom: 2rem;
-  } */
 `
 export const ProductItemContainer = styled.div`
   padding: 0 20px;

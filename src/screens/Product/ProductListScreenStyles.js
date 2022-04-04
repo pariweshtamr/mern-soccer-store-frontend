@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const ProductListScreenContainer = styled.div`
-  height: 67vh;
-`
+export const ProductListScreenContainer = styled.div``
 export const Title = styled.h1`
   margin: 20px;
   padding-left: 20px;
