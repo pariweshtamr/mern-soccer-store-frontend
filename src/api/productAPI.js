@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const prodApi = `${process.env.ROOT_URL}/products`
+const prodApi = `${process.env.ROOT_URL}/api/v1/products`
 
 export const getProducts = async () => {
   try {

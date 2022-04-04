@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const userApi = `${process.env.ROOT_URL}/user`
+const userApi = `${process.env.ROOT_URL}/api/v1/user`
 
 export const createUser = async (newUser) => {
   try {

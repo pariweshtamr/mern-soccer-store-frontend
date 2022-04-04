@@ -24,11 +24,14 @@ const OrderHistory = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const { data } = await Axios.get(`${process.env.ROOT_URL}/order/paid`, {
-          headers: {
-            authorization: window.sessionStorage.getItem('accessJWT'),
+        const { data } = await Axios.get(
+          `${process.env.ROOT_URL}/api/v1/order/paid`,
+          {
+            headers: {
+              authorization: window.sessionStorage.getItem('accessJWT'),
+            },
           },
-        })
+        )
         console.log(data)
         if ((data.message = 'No orders placed')) {
           setNoOrder(true)

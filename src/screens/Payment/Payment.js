@@ -29,7 +29,7 @@ const Payment = () => {
   const paymentSuccess = async () => {
     try {
       const { data } = await Axios.post(
-        `${process.env.ROOT_URL}/order/orderstatus`,
+        `${process.env.ROOT_URL}/api/v1/order/orderstatus`,
         {
           isPaid: true,
           orderId: JSON.parse(localStorage.getItem('order'))?._id,

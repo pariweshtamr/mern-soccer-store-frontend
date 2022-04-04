@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const tokenApi = `${process.env.ROOT_URL}/token`
+const tokenApi = `${process.env.ROOT_URL}/api/v1/token`
 
 export const getNewAccessJWT = async () => {
   try {

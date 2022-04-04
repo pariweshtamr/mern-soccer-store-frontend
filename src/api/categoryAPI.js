@@ -1,11 +1,6 @@
 import Axios from 'axios'
 
-const rootUrl =
-  process.env.NODE_ENV === 'production'
-    ? process.env.ROOT_URL
-    : 'https://mern-soccer-store.herokuapp.com'
-
-const catApi = `${process.env.ROOT_URL}/category`
+const catApi = `${process.env.ROOT_URL}/api/v1/category`
 export const getCategories = async () => {
   try {
     const { data } = await Axios.get(catApi)
