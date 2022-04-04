@@ -31,7 +31,7 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
     setProcessing(true)
 
     const res = await Axios.post(
-      `${process.env.ROOT_URL}/api/v1/payment/create`,
+      'https://mern-soccer-store.herokuapp.com/api/v1/payment/create',
       {
         amount: value.totalAmount * 100,
       },
