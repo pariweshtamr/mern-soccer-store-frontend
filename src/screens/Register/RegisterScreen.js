@@ -33,8 +33,11 @@ const RegisterScreen = () => {
 
   const { isLoading, userRegisterResponse } = useSelector((state) => state.user)
 
+  const clearState = () => {
+    setUser({ ...initialState })
+  }
+
   const handleOnSubmit = (e) => {
-    const { name, value } = e.target
     e.preventDefault()
 
     // check for password confirmation
@@ -45,11 +48,7 @@ const RegisterScreen = () => {
       return
     }
     dispatch(userRegister(newUser))
-
-    setUser({
-      ...user,
-      [name]: '',
-    })
+    clearState()
   }
 
   const handleOnChange = (e) => {
@@ -124,7 +123,9 @@ const RegisterScreen = () => {
             required
           />
           {passwordError && <Alert variant="danger">{passwordError}</Alert>}
-          <RegisterButton type="submit">REGISTER</RegisterButton>
+          <RegisterButton type="submit" onClick={}>
+            REGISTER
+          </RegisterButton>
         </RegisterForm>
         <LoginOption>Already have an account?</LoginOption>
 
