@@ -198,8 +198,8 @@ const Order = () => {
                   </Container>
                 </Left>
 
-                <DisplayOrderItems style={{ width: '100%' }}>
-                  <Container>
+                <DisplayOrderItems>
+                  <Container style={{ width: '100%' }}>
                     <Title>Order Items</Title>
                     <Details>
                       <div>{orderItems}</div>
