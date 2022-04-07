@@ -16,6 +16,7 @@ import {
   RegisterWrapper,
 } from './RegisterScreenStyles'
 import registerWallpaper from '../../assets/registerWallpaper.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
   firstName: '',
@@ -28,6 +29,7 @@ const initialState = {
 
 const RegisterScreen = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [user, setUser] = useState(initialState)
   const [passwordError, setPasswordError] = useState('')
 
@@ -44,10 +46,9 @@ const RegisterScreen = () => {
       return
     }
 
-    // empty form
-    setUser(...initialState)
-
     dispatch(userRegister(newUser))
+
+    navigate('/login')
   }
 
   const handleOnChange = (e) => {
