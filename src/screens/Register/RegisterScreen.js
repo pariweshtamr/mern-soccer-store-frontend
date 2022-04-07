@@ -44,8 +44,6 @@ const RegisterScreen = () => {
       return
     }
     dispatch(userRegister(newUser))
-
-    setUser({ ...initialState })
   }
 
   const handleOnChange = (e) => {
@@ -120,7 +118,12 @@ const RegisterScreen = () => {
             required
           />
           {passwordError && <Alert variant="danger">{passwordError}</Alert>}
-          <RegisterButton type="submit">REGISTER</RegisterButton>
+          <RegisterButton
+            type="submit"
+            onClick={() => setUser({ ...initialState })}
+          >
+            REGISTER
+          </RegisterButton>
         </RegisterForm>
         <LoginOption>Already have an account?</LoginOption>
 
