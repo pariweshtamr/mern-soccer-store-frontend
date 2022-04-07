@@ -33,10 +33,6 @@ const RegisterScreen = () => {
 
   const { isLoading, userRegisterResponse } = useSelector((state) => state.user)
 
-  const clearState = () => {
-    setUser({ ...initialState })
-  }
-
   const handleOnSubmit = (e) => {
     e.preventDefault()
 
@@ -48,7 +44,8 @@ const RegisterScreen = () => {
       return
     }
     dispatch(userRegister(newUser))
-    clearState()
+
+    setUser({ ...initialState })
   }
 
   const handleOnChange = (e) => {
