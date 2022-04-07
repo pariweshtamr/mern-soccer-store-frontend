@@ -103,7 +103,7 @@ const Order = () => {
               </Hr>
               <OrderDetails>
                 <Left>
-                  <Container>
+                  <Container style={{ width: '70%' }}>
                     <Title>Order Summary</Title>
 
                     <Details>
@@ -175,7 +175,7 @@ const Order = () => {
                     </PaymentMethod>
                   </Container>
 
-                  <Container>
+                  <Container style={{ width: '70%' }}>
                     <Title>Shipping Details</Title>
 
                     <Details>
