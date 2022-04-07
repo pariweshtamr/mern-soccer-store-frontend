@@ -78,12 +78,9 @@ const Checkout = () => {
 
                 <ShippingRow>
                   <ShippingDetails>
-                    <ShippingLabel>Country</ShippingLabel>
-                    <ShippingInput
-                      ref={countryRef}
-                      placeholder="Country"
-                      required
-                    />
+                    <ShippingLabel>City</ShippingLabel>
+
+                    <ShippingInput ref={cityRef} placeholder="City" required />
                   </ShippingDetails>
 
                   <ShippingDetails>
@@ -99,9 +96,12 @@ const Checkout = () => {
 
                 <ShippingRow>
                   <ShippingDetails>
-                    <ShippingLabel>City</ShippingLabel>
-
-                    <ShippingInput ref={cityRef} placeholder="City" required />
+                    <ShippingLabel>Country</ShippingLabel>
+                    <ShippingInput
+                      ref={countryRef}
+                      placeholder="Country"
+                      required
+                    />
                   </ShippingDetails>
 
                   <ShippingDetails>
