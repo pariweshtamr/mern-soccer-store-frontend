@@ -100,7 +100,7 @@ export const ProfileForm = () => {
           <ProfileItemContainer>
             <ProfileLabel htmlFor="email">
               Email
-              {userProfile.isEmailConfirmed ? (
+              {/* {userProfile.isEmailConfirmed ? (
                 <i
                   title="cerified email"
                   className="fa-solid fa-circle-check text-success"
@@ -110,7 +110,7 @@ export const ProfileForm = () => {
                   title="email not verified"
                   className="fa-solid fa-circle-xmark text-danger"
                 ></i>
-              )}
+              )} */}
             </ProfileLabel>
             <ProfileInput
               name="email"
