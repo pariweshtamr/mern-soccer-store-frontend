@@ -199,7 +199,7 @@ const Order = () => {
                 </Left>
 
                 <DisplayOrderItems>
-                  <Container style={{ width: '100%' }}>
+                  <Container style={{ width: '80%' }}>
                     <Title>Order Items</Title>
                     <Details>
                       <div>{orderItems}</div>
