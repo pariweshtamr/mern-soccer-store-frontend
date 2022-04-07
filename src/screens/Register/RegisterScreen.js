@@ -43,7 +43,7 @@ const RegisterScreen = () => {
       setPasswordError('Password does not match')
       return
     }
-    setUser(initialState) && dispatch(userRegister(newUser))
+    dispatch(userRegister(newUser)) && setUser(initialState)
   }
 
   const handleOnChange = (e) => {
