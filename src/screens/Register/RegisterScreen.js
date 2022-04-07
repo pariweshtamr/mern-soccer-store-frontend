@@ -45,9 +45,12 @@ const RegisterScreen = () => {
     }
     dispatch(userRegister(newUser))
 
-    console.log(this.firstName.value)
-
-    setUser('')
+    const resetValues = () => {
+      setUser(initialState)
+    }
+    return {
+      resetValues,
+    }
   }
 
   const handleOnChange = (e) => {

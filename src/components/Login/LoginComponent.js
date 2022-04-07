@@ -21,7 +21,7 @@ import {
 import loginWallpaper from '../../assets/loginWallpaper.jpg'
 
 const initialState = {
-  username: 'pariwesh7',
+  username: '',
   password: '',
 }
 
