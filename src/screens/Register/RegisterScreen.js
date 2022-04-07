@@ -44,6 +44,8 @@ const RegisterScreen = () => {
       return
     }
     dispatch(userRegister(newUser))
+
+    setUser(initialState)
   }
 
   const handleOnChange = (e) => {
