@@ -120,9 +120,7 @@ const RegisterScreen = () => {
             required
           />
           {passwordError && <Alert variant="danger">{passwordError}</Alert>}
-          <RegisterButton type="submit" onClick={}>
-            REGISTER
-          </RegisterButton>
+          <RegisterButton type="submit">REGISTER</RegisterButton>
         </RegisterForm>
         <LoginOption>Already have an account?</LoginOption>
 
