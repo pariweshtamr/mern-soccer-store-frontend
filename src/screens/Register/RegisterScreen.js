@@ -48,7 +48,9 @@ const RegisterScreen = () => {
 
     dispatch(userRegister(newUser))
 
-    navigate('/login')
+    setTimeout(() => {
+      navigate('/login')
+    }, 3000)
   }
 
   const handleOnChange = (e) => {
