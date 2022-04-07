@@ -50,7 +50,7 @@ const RegisterScreen = () => {
 
     setTimeout(() => {
       navigate('/login')
-    }, 3000)
+    }, 5000)
   }
 
   const handleOnChange = (e) => {
