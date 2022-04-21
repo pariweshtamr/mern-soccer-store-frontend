@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+SHOP ALL ECOMMERCE APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Website - https://mern-soccer-store.vercel.app/
 
-## Available Scripts
+About/Description
+This app is a fully functional ecommerce app and users can view single product, increase/decrease the quantity of product and then move to checkout and pay using stripe. After placing the order, the order can be viewed from the order history. Users can also edit the user info from the profile section in the app.
 
-In the project directory, you can run:
+Functionalities
+Login/Signup using JWT token
+Stripe Payment
+Order History
+Edit User Information
+Protected Routes using backend
 
-### `npm start`
+Tech Used:
+Frontend
+HTML
+CSS
+JAVASCRIPT
+REACT BOOTSTRAP
+REACT
+REDUX TOOLKIT
+STRIPE
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend
+NODEJS/EXPRESS
+MONGODB
+JWT
+BCRYPTJS
+Icons - Fonts Awesome
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Outcome/Learning
+During the implementation of this project, I learned a lot. For starters, this is a medium to large-scale commercial project, therefore there was a lot of preparation that I had to complete. Then I learned how redux works wonderfully in large apps with several reducers; in this app, the amazing redux toolkit handles login, cart functionality, order and payment management, and utilising redux makes state management and accessibility inside the components easy. A plus benefit was that I learned how to construct the login feature using JWT tokens and bcrypt packages. On the backend, I learned how to design schema development in mongoDB for these types of commercial projects with many to many relationships, such as a user having multiple orders, and also how to effectively manage all of this many to many data while building this project.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+NPM Commands
+npm i - installs all the dependencies
+npm start - starts the frontend development server on your local machine.
