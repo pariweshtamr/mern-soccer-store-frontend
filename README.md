@@ -1,6 +1,6 @@
 SHOP ALL ECOMMERCE APP
 
-![app image](public\images\ecom.png)
+![ecom](https://user-images.githubusercontent.com/87212082/164389136-b26e58d6-caac-4752-9d3d-97e0b97e70f5.png)
 
 Live Website - https://mern-soccer-store.vercel.app/
 
