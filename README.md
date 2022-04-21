@@ -9,7 +9,6 @@ This app is a fully functional ecommerce app and users can view single product, 
 
 Functionalities:
 
-
 1. Login/Signup using JWT token
 
 2. Stripe Payment
@@ -19,7 +18,6 @@ Functionalities:
 4. Edit User Information
 
 5. Protected Routes
-
 
 Tech Used:
 
@@ -39,7 +37,7 @@ Frontend -
 
 - STRIPE
 
-- Backend
+Backend -
 
 - NODEJS/EXPRESS
 
