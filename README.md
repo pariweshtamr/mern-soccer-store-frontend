@@ -1,5 +1,7 @@
 SHOP ALL ECOMMERCE APP
 
+![app image](public\images\ecom.png)
+
 Live Website - https://mern-soccer-store.vercel.app/
 
 About/Description
