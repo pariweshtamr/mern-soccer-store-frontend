@@ -5,6 +5,7 @@ SOCCER STORE ECOMMERCE APP
 Live Website - https://mern-soccer-store.vercel.app/
 
 About/Description
+
 This app is a fully functional ecommerce app and users can view single product, increase/decrease the quantity of product and then move to checkout and pay using stripe. After placing the order, the order can be viewed from the order history. Users can also edit the user info from the profile section in the app.
 
 Functionalities:
