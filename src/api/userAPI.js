@@ -33,7 +33,7 @@ export const verifyNewUser = async (info) => {
 
 export const loginUser = async (info) => {
   try {
-    const { data } = await Axios.post(url + "user/login", info)
+    const { data } = await Axios.post(url + "/user/login", info)
     return data
   } catch (error) {
     return {
