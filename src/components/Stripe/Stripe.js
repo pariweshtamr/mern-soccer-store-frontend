@@ -1,41 +1,37 @@
-import React, { useState } from 'react'
-import { loadStripe } from '@stripe/stripe-js'
+import React, { useState } from "react"
+import { loadStripe } from "@stripe/stripe-js"
 import {
   CardElement,
   useStripe,
   Elements,
   useElements,
-} from '@stripe/react-stripe-js'
-import Axios from 'axios'
+} from "@stripe/react-stripe-js"
+import Axios from "axios"
 import {
   PaymentButton,
   PaymentDetailsForm,
   PaymentDetailsTitle,
   Wrapper,
-} from './StripeStyles'
-import { Details } from '../../GlobalStyles'
-
-const promise = loadStripe(
-  'pk_test_51KShxEIHP3y9z5gNppWegQ7G9m2uFCuTBGrvX4NpHasrM31ZpC9jgXkG8Qn3OkqNyfhYHzAGwDwmlFTokZyiJ9HT00246flD5j',
-)
+} from "./StripeStyles"
+import { Details } from "../../GlobalStyles"
 
 const PaymentForm = ({ data: value, paymentSuccess }) => {
-  const [processing, setProcessing] = useState('')
+  const [processing, setProcessing] = useState("")
   const stripe = useStripe()
   const elements = useElements()
 
-  console.log(value)
+  const url =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_ROOT_URL
+      : "http://localhost:8000/api/v1"
 
   const handleOnSubmit = async (e) => {
     e.preventDefault()
     setProcessing(true)
 
-    const res = await Axios.post(
-      'https://mern-soccer-store.herokuapp.com/api/v1/payment/create',
-      {
-        amount: value.totalAmount * 100,
-      },
-    )
+    const res = await Axios.post(`${url}/payment/create`, {
+      amount: value.totalAmount * 100,
+    })
 
     try {
       const payload = await stripe.confirmCardPayment(res.data, {
@@ -47,11 +43,11 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
       console.log(payload)
 
       if (payload.error) {
-        console.log('failed')
+        console.log("failed")
         setProcessing(false)
         console.log(payload.error)
       } else {
-        console.log('success')
+        console.log("success")
         setProcessing(false)
         paymentSuccess()
       }
@@ -61,19 +57,19 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
   }
 
   const configCardElement = {
-    iconStyle: 'solid',
+    iconStyle: "solid",
     style: {
       base: {
-        color: 'teal',
-        fontSmoothing: 'antialiased',
-        fontSize: '14px',
-        '::placeholder': {
-          color: 'gray',
+        color: "teal",
+        fontSmoothing: "antialiased",
+        fontSize: "14px",
+        "::placeholder": {
+          color: "gray",
         },
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a',
+        color: "#fa755a",
+        iconColor: "#fa755a",
       },
     },
 
@@ -84,7 +80,7 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
     <>
       <div>
         <Details>
-          <p style={{ textAlign: 'center' }}>
+          <p style={{ textAlign: "center" }}>
             Test Card Number - <span> 4242 4242 4242 4242</span>
           </p>
         </Details>
@@ -95,7 +91,7 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
           <CardElement options={configCardElement} id="card-element" />
           <PaymentButton
             type="submit"
-            style={{ marginTop: '40px', backgroundColor: '#000' }}
+            style={{ marginTop: "40px", backgroundColor: "#000" }}
             disabled={!stripe}
           >
             PAY ${value.totalAmount}
@@ -107,6 +103,9 @@ const PaymentForm = ({ data: value, paymentSuccess }) => {
   )
 }
 
+const promise = loadStripe(
+  "pk_test_51KShxEIHP3y9z5gNppWegQ7G9m2uFCuTBGrvX4NpHasrM31ZpC9jgXkG8Qn3OkqNyfhYHzAGwDwmlFTokZyiJ9HT00246flD5j"
+)
 const Stripe = ({ data, paymentSuccess }) => {
   return (
     <>

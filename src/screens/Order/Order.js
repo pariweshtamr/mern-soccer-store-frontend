@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useState } from 'react'
-import Axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { currentOrderHandler } from '../../redux/Order/OrderSlice'
+import { useSelector, useDispatch } from "react-redux"
+import { useState } from "react"
+import Axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { currentOrderHandler } from "../../redux/Order/OrderSlice"
 import {
   OrderItemImage,
   OrderItem,
@@ -18,9 +18,9 @@ import {
   OrderDetails,
   DisplayOrderItems,
   Left,
-} from './OrderStyles'
-import LoadingBox from '../../components/LoadingBox/LoadingBox'
-import { Container, Details, Hr, Title } from '../../GlobalStyles'
+} from "./OrderStyles"
+import LoadingBox from "../../components/LoadingBox/LoadingBox"
+import { Container, Details, Hr, Title } from "../../GlobalStyles"
 
 const Order = () => {
   const { isLoggedIn } = useSelector((state) => state.user)
@@ -29,11 +29,16 @@ const Order = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [payment, setPayment] = useState('')
+  const [payment, setPayment] = useState("")
 
   const { address, city, state, postal_code, country } = JSON.parse(
-    localStorage.getItem('shippingAddress'),
+    localStorage.getItem("shippingAddress")
   )
+
+  const url =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_ROOT_URL
+      : "http://localhost:8000/api/v1"
 
   const placeOrderHandler = () => {
     setLoading(true)
@@ -41,25 +46,24 @@ const Order = () => {
     const sendCartData = async () => {
       try {
         const { data } = await Axios.post(
-          'https://mern-soccer-store.herokuapp.com/api/v1/order',
+          `${url}/order`,
           {
             ...cart,
             shippingAddress: {
-              ...JSON.parse(localStorage.getItem('shippingAddress')),
+              ...JSON.parse(localStorage.getItem("shippingAddress")),
             },
             paymentMethod: payment,
           },
           {
             headers: {
-              authorization: window.sessionStorage.getItem('accessJWT'),
+              authorization: window.sessionStorage.getItem("accessJWT"),
             },
-          },
+          }
         )
 
-        console.log(data)
         dispatch(currentOrderHandler(data))
         setLoading(false)
-        navigate(`/order/${JSON.parse(localStorage.getItem('order'))._id}`)
+        navigate(`/order/${JSON.parse(localStorage.getItem("order"))._id}`)
       } catch (error) {
         console.log(error.message)
       }
@@ -70,10 +74,8 @@ const Order = () => {
     }
   }
 
-  console.log(JSON.parse(localStorage.getItem(orderState)))
-
   const orderItems = JSON.parse(
-    localStorage.getItem('cartState'),
+    localStorage.getItem("cartState")
   )?.cartItems.map((item) => {
     return (
       <OrderItem key={item._id}>
@@ -103,15 +105,15 @@ const Order = () => {
               </Hr>
               <OrderDetails>
                 <Left>
-                  <Container style={{ width: '70%' }}>
+                  <Container style={{ width: "70%" }}>
                     <Title>Order Summary</Title>
 
                     <Details>
                       <div>
-                        Total Items :{' '}
+                        Total Items :{" "}
                         <span>
                           {
-                            JSON.parse(localStorage.getItem('cartState'))
+                            JSON.parse(localStorage.getItem("cartState"))
                               .totalQuantity
                           }
                         </span>
@@ -120,7 +122,7 @@ const Order = () => {
                         Total Price - $
                         <span>
                           {
-                            JSON.parse(localStorage.getItem('cartState'))
+                            JSON.parse(localStorage.getItem("cartState"))
                               .totalAmount
                           }
                         </span>
@@ -138,11 +140,11 @@ const Order = () => {
                         />
 
                         <PaymentLabel htmlFor="flexRadioDefault1">
-                          Stripe{' '}
+                          Stripe{" "}
                           <i
                             className="fab fa-cc-stripe"
                             style={{
-                              color: '#5433FF',
+                              color: "#5433FF",
                             }}
                           ></i>
                         </PaymentLabel>
@@ -155,13 +157,13 @@ const Order = () => {
                       />
 
                       <PaymentLabel>
-                        Paypal{' '}
+                        Paypal{" "}
                         <i
                           className="fab fa-paypal"
                           style={{
-                            color: '#00457C',
+                            color: "#00457C",
                           }}
-                        ></i>{' '}
+                        ></i>{" "}
                         (Coming Soon...)
                       </PaymentLabel>
                       <MethodPaypal></MethodPaypal>
@@ -175,7 +177,7 @@ const Order = () => {
                     </PaymentMethod>
                   </Container>
 
-                  <Container style={{ width: '70%' }}>
+                  <Container style={{ width: "70%" }}>
                     <Title>Shipping Details</Title>
 
                     <Details>
@@ -199,7 +201,7 @@ const Order = () => {
                 </Left>
 
                 <DisplayOrderItems>
-                  <Container style={{ width: '80%' }}>
+                  <Container style={{ width: "80%" }}>
                     <Title>Order Items</Title>
                     <Details>
                       <div>{orderItems}</div>
@@ -213,7 +215,7 @@ const Order = () => {
           )}
         </>
       ) : (
-        <h3 style={{ textAlign: 'center', marginTop: '40px' }}>
+        <h3 style={{ textAlign: "center", marginTop: "40px" }}>
           Please Sign In to Place Order!
         </h3>
       )}

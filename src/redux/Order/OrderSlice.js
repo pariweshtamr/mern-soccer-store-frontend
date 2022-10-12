@@ -1,20 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit"
 
-const stateCurrentOrder = JSON.parse(localStorage.getItem('order')) || {}
+const stateCurrentOrder = JSON.parse(localStorage.getItem("order")) || {}
 
 const initialState = {
   pastOrders: [],
   currentOrder: stateCurrentOrder,
-  address: JSON.parse(localStorage.getItem('order'))?.shippingAddress || {},
+  address: JSON.parse(localStorage.getItem("order"))?.shippingAddress || {},
 }
 
 const orderSlice = createSlice({
-  name: 'order',
+  name: "order",
   initialState,
   reducers: {
     currentOrderHandler(state, { payload }) {
-      console.log(payload)
-      localStorage.setItem('order', JSON.stringify(payload.order))
+      localStorage.setItem("order", JSON.stringify(payload.order))
       state.currentOrder = payload.order
     },
   },
