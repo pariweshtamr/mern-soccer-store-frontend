@@ -31,6 +31,8 @@ const Order = () => {
   const [loading, setLoading] = useState(false)
   const [payment, setPayment] = useState("")
 
+  console.log(orderState)
+
   const { address, city, state, postal_code, country } = JSON.parse(
     localStorage.getItem("shippingAddress")
   )

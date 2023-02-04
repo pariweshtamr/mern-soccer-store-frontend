@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { Card, Accordion } from 'react-bootstrap'
+import React, { useEffect, useState } from "react"
+import { Card, Accordion } from "react-bootstrap"
 
-import Axios from 'axios'
-import { Details, Hr, Title } from '../../GlobalStyles'
+import Axios from "axios"
+import { Details, Hr, Title } from "../../GlobalStyles"
 import {
   HistoryContainer,
   HistoryTitle,
   NoOrderContainer,
   OrderList,
-} from './OrderHistoryStyles.js'
+} from "./OrderHistoryStyles.js"
 import {
   OrderItem,
   OrderItemImage,
   OrderItemName,
   OrderItemPrice,
   OrderItemQty,
-} from '../../screens/Order/OrderStyles'
+} from "../../screens/Order/OrderStyles"
+
+const url =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_ROOT_URL
+    : "http://localhost:8000/api/v1"
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([])
@@ -24,16 +29,13 @@ const OrderHistory = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const { data } = await Axios.get(
-          'https://mern-soccer-store.herokuapp.com/api/v1/order/paid',
-          {
-            headers: {
-              authorization: window.sessionStorage.getItem('accessJWT'),
-            },
+        const { data } = await Axios.get(url + "/order/paid", {
+          headers: {
+            authorization: window.sessionStorage.getItem("accessJWT"),
           },
-        )
+        })
         console.log(data)
-        if ((data.message = 'No orders placed')) {
+        if ((data.message = "No orders placed")) {
           setNoOrder(true)
         }
         setOrders(data.paidOrders)
@@ -49,7 +51,7 @@ const OrderHistory = () => {
       <div key={order._id}>
         <HistoryContainer>
           <strong>{i + 1}.&nbsp;</strong>
-          <Title style={{ textAlign: 'center' }}>
+          <Title style={{ textAlign: "center" }}>
             {`Order ID: ${order._id}`}
           </Title>
           <Details>
@@ -62,7 +64,7 @@ const OrderHistory = () => {
             </p>
             <p>
               <span>Order Status - </span>
-              {'Paid'}
+              {"Paid"}
             </p>
             <p>
               <span>Payment Method - </span>
