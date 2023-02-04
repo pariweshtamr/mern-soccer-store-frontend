@@ -1,16 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { toast } from 'react-toastify'
+import { createSlice } from "@reduxjs/toolkit"
+import { toast } from "react-toastify"
 
-const stateCartItems = JSON.parse(localStorage.getItem('cartState'))?.cartItems
-  ? JSON.parse(localStorage.getItem('cartState')).cartItems
+const stateCartItems = JSON.parse(localStorage.getItem("cartState"))?.cartItems
+  ? JSON.parse(localStorage.getItem("cartState")).cartItems
   : []
-const stateTotalAmount = JSON.parse(localStorage.getItem('cartState'))
+const stateTotalAmount = JSON.parse(localStorage.getItem("cartState"))
   ?.totalAmount
-  ? JSON.parse(localStorage.getItem('cartState')).totalAmount
+  ? JSON.parse(localStorage.getItem("cartState")).totalAmount
   : 0
-const stateTotalQuantity = JSON.parse(localStorage.getItem('cartState'))
+const stateTotalQuantity = JSON.parse(localStorage.getItem("cartState"))
   ?.totalQuantity
-  ? JSON.parse(localStorage.getItem('cartState')).totalQuantity
+  ? JSON.parse(localStorage.getItem("cartState")).totalQuantity
   : 0
 
 const initialState = {
@@ -20,28 +20,28 @@ const initialState = {
 }
 
 const cartSlice = createSlice({
-  name: 'cartSlice',
+  name: "cartSlice",
   initialState,
   reducers: {
     addProductToCart: (state, { payload }) => {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item._id === payload._id,
+        (item) => item._id === payload._id
       )
 
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].productQuantity += 1
         toast.info(`Increased ${payload.name} cart quantity!`, {
-          position: 'bottom-left',
+          position: "bottom-left",
         })
       } else {
         const productInCart = { ...payload, productQuantity: 1 }
         state.cartItems.push(productInCart)
         toast.success(`${payload.name} has been added to cart!`, {
-          position: 'bottom-left',
+          position: "bottom-left",
         })
       }
 
-      localStorage.setItem('cartState', JSON.stringify(state))
+      localStorage.setItem("cartState", JSON.stringify(state))
     },
 
     addProductToCartFail: (state, { payload }) => {
@@ -50,37 +50,37 @@ const cartSlice = createSlice({
 
     removeProductFromCart: (state, { payload }) => {
       const updateCartItems = state.cartItems.filter(
-        (item) => item._id !== payload._id,
+        (item) => item._id !== payload._id
       )
 
       state.cartItems = updateCartItems
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
       toast.error(`${payload.name} has been removed to cart!`, {
-        position: 'bottom-left',
+        position: "bottom-left",
       })
     },
 
     decreaseProductQuantity: (state, { payload }) => {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item._id === payload._id,
+        (item) => item._id === payload._id
       )
       if (state.cartItems[itemIndex].productQuantity > 1) {
         state.cartItems[itemIndex].productQuantity -= 1
 
         toast.info(`Decreased ${payload.name} cart quantity`, {
-          position: 'bottom-left',
+          position: "bottom-left",
         })
       } else if (state.cartItems[itemIndex].productQuantity === 1) {
         const updateCartItems = state.cartItems.filter(
-          (item) => item._id !== payload._id,
+          (item) => item._id !== payload._id
         )
 
         state.cartItems = updateCartItems
         toast.error(`${payload.name} has been removed to cart!`, {
-          position: 'bottom-left',
+          position: "bottom-left",
         })
       }
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
     },
 
     clearCart: (state) => {
@@ -88,9 +88,9 @@ const cartSlice = createSlice({
       state.totalAmount = 0
       state.totalQuantity = 0
       toast.error(`Cart cleared!`, {
-        position: 'bottom-left',
+        position: "bottom-left",
       })
-      localStorage.setItem('cartState', JSON.stringify(state))
+      localStorage.setItem("cartState", JSON.stringify(state))
     },
 
     getTotals: (state) => {
@@ -107,11 +107,11 @@ const cartSlice = createSlice({
         {
           total: 0,
           quantity: 0,
-        },
+        }
       )
       state.totalQuantity = quantity
       state.totalAmount = total
-      localStorage.setItem('cartState', JSON.stringify(state))
+      localStorage.setItem("cartState", JSON.stringify(state))
     },
   },
 })

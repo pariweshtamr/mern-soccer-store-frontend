@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react"
+import { Link } from "react-router-dom"
 import {
   Container,
   CategoryItemButton,
@@ -7,13 +7,13 @@ import {
   CategoryItemImage,
   CategoryItemInfo,
   CategoryItemTitle,
-} from './CategoryStyles'
+} from "./CategoryStyles"
 
 const CategoryItem = ({ category }) => {
   return (
     <Container>
       <CategoryItemContainer>
-        <Link to={`products/${category.title}`}>
+        <Link to={`/products/${category.title}`}>
           <CategoryItemImage src={category.image} />
           <CategoryItemInfo>
             <CategoryItemTitle>{category.title}</CategoryItemTitle>

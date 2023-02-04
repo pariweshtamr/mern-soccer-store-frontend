@@ -22,7 +22,7 @@ const Products = ({ cat, filters }) => {
     const getProducts = async () => {
       try {
         const result = await Axios.get(
-          cat ? url + "/products?category=${cat}" : `${url}/products`
+          cat ? url + `/products/?category=${cat}` : `${url}/products`
         )
         setProducts(result.data)
       } catch (error) {
