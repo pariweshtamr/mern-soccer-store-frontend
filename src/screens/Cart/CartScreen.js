@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import {
   CartBottom,
   ShopLink,
@@ -32,18 +32,19 @@ import {
   Hr2,
   ClearCartButton,
   TopText,
-} from './CartScreenStyles'
-import MessageBox from '../../components/MessageBox/MessageBox'
-import Announcement from '../../components/Announcement/Announcement'
-import { Add, Remove } from '@material-ui/icons'
+} from "./CartScreenStyles"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import Announcement from "../../components/Announcement/Announcement"
+import AddIcon from "@mui/icons-material/Add"
+import RemoveIcon from "@mui/icons-material/Remove"
 import {
   addProductToCart,
   clearCart,
   decreaseProductQuantity,
   getTotals,
   removeProductFromCart,
-} from '../../redux/Cart/CartSlice'
-import { Hr } from '../../GlobalStyles'
+} from "../../redux/Cart/CartSlice"
+import { Hr } from "../../GlobalStyles"
 
 const CartScreen = () => {
   const dispatch = useDispatch()
@@ -70,7 +71,7 @@ const CartScreen = () => {
   }
 
   const handleOnCheckout = () => {
-    navigate('/cart/checkout')
+    navigate("/cart/checkout")
 
     window.scrollTo(0, 0)
   }
@@ -109,7 +110,7 @@ const CartScreen = () => {
 
                       <CartProductDescription>
                         <CartProductName>
-                          <b>Product:</b>{' '}
+                          <b>Product:</b>{" "}
                           <ProductLink to={`/product/${item._id}`}>
                             {item.name}
                           </ProductLink>
@@ -118,13 +119,15 @@ const CartScreen = () => {
 
                       <CartPriceDetail>
                         <CartProductAmountContainer>
-                          <Remove
+                          <RemoveIcon
                             onClick={() => handleDecreaseQuantity(item)}
                           />
                           <CartProductQty>
                             {item.productQuantity}
                           </CartProductQty>
-                          <Add onClick={() => handleIncreaseQuantity(item)} />
+                          <AddIcon
+                            onClick={() => handleIncreaseQuantity(item)}
+                          />
                           {/* <CartProductSize>{item.size}</CartProductSize> */}
                         </CartProductAmountContainer>
                         <CartProductPrice>

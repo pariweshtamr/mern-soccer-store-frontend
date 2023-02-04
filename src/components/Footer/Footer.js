@@ -5,8 +5,8 @@ import {
   Phone,
   Room,
   Twitter,
-} from '@material-ui/icons'
-import React from 'react'
+} from "@mui/icons-material"
+import React from "react"
 import {
   Description,
   FooterCenter,
@@ -21,8 +21,8 @@ import {
   Payment,
   SocialContainer,
   SocialIcon,
-} from './FooterStyles'
-import Pay from '../../assets/payment.png'
+} from "./FooterStyles"
+import Pay from "../../assets/payment.png"
 
 const Footer = () => {
   return (
@@ -57,13 +57,13 @@ const Footer = () => {
         <FooterRight>
           <FooterTitle>Contact</FooterTitle>
           <FooterContactItem>
-            <Room style={{ marginRight: '10px' }} /> Sydney 2000, Australia
+            <Room style={{ marginRight: "10px" }} /> Sydney 2000, Australia
           </FooterContactItem>
           <FooterContactItem>
-            <Phone style={{ marginRight: '10px' }} /> +61 499 999 999
+            <Phone style={{ marginRight: "10px" }} /> +61 499 999 999
           </FooterContactItem>
           <FooterContactItem>
-            <MailOutline style={{ marginRight: '10px' }} /> contact@email.com
+            <MailOutline style={{ marginRight: "10px" }} /> contact@email.com
           </FooterContactItem>
           <Payment src={Pay} />
         </FooterRight>

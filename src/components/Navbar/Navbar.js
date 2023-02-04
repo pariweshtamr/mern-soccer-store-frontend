@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react"
 import {
   Left,
   LogoLink,
@@ -11,12 +11,12 @@ import {
   UserGreet,
   Welcome,
   ProfileLink,
-} from './NavbarStyles'
-import { Badge } from '@material-ui/core'
-import { ShoppingCartOutlined } from '@material-ui/icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { autoLogin, userLogout } from '../../redux/User/UserAction'
-import { clearCart } from '../../redux/Cart/CartSlice'
+} from "./NavbarStyles"
+import { Badge } from "@mui/material"
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
+import { useDispatch, useSelector } from "react-redux"
+import { autoLogin, userLogout } from "../../redux/User/UserAction"
+import { clearCart } from "../../redux/Cart/CartSlice"
 
 const Navbar = () => {
   const { totalQuantity } = useSelector((state) => state.cart)
@@ -66,7 +66,7 @@ const Navbar = () => {
             <MenuLink to="/cart">
               <MenuItem>
                 <Badge badgeContent={totalQuantity} color="primary">
-                  <ShoppingCartOutlined />
+                  <ShoppingCartOutlinedIcon />
                 </Badge>
               </MenuItem>
             </MenuLink>

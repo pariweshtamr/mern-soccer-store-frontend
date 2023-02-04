@@ -30,7 +30,7 @@ const Products = ({ cat, filters }) => {
       }
     }
     getProducts()
-  }, [cat])
+  }, [cat, url])
 
   useEffect(() => {
     cat &&
